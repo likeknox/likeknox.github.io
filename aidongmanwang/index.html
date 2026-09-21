@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爱动漫网dfls提供最新热门动漫资讯、高清漫画在线阅读、热门番剧推荐及最新更新动态。">
+    <meta name="keywords" content="爱动漫网dfls,动漫推荐,在线漫画,动漫资讯,高清番剧">
+    <title>爱动漫网dfls - 热门动漫推荐与在线漫画阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff5e57;
+            --secondary-color: #ff9f43;
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        .search-box button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .hero-banner {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 400px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            color: white;
+        }
+
+        .hero-banner img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            object-fit: cover;
+            mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 94, 87, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 94, 87, 0.6);
+        }
+
+        .hero-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .side-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #f1f2f6;
+            color: var(--text-sub);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: #ff4757; color: white; }
+        .rank-list li:nth-child(2) .rank-num { background: #ffa502; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background: #2ed573; color: white; }
+
+        .rank-info h4 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .rank-info span {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Content Section */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0 25px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .more-link {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .more-link:hover {
+            color: var(--primary-color);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            padding-top: 140%;
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Update List Style */
+        .update-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .update-table th, .update-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f1f2f6;
+        }
+
+        .update-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .update-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .update-table tr:hover {
+            background: #fafbfc;
+        }
+
+        .update-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .update-ep {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .update-time {
+            color: var(--text-sub);
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            margin-top: 60px;
+            padding: 50px 0 20px;
+            border-top: 1px solid #f1f2f6;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-desc p {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #f1f2f6;
+            color: #a4b0be;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-banner {
+                height: 300px;
+            }
+            .hero-banner img {
+                width: 60%;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .header-inner {
+                justify-content: center;
+            }
+            .search-box {
+                display: none;
+            }
+            .grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .update-table th:nth-child(2), 
+            .update-table td:nth-child(2) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#ff5e57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#ff5e57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#ff5e57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                爱动漫网<span>dfls</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">日漫</a></li>
+                    <li><a href="#">国漫</a></li>
+                    <li><a href="#">韩漫</a></li>
+                    <li><a href="#">剧场版</a></li>
+                    <li><a href="#">排行榜</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索番剧或漫画...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">本周热门</span>
+                    <h1>探索无限<br>二次元世界</h1>
+                    <p>爱动漫网dfls汇集最新日漫、国漫资源，高清画质，更新迅速。无论是热血战斗还是治愈日常，这里都有你想要的故事。</p>
+                    <a href="#" class="btn btn-primary">立即开始阅读</a>
+                </div>
+                <img src="https://picsum.photos/seed/animehero/600/400" alt="动漫推荐封面">
+            </div>
+            <aside class="hero-sidebar">
+                <div class="side-card">
+                    <h3>🔥 热门榜单</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <h4>进击的巨人</h4>
+                                <span>连载中</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <h4>鬼灭之刃</h4>
+                                <span>完结</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <h4>间谍过家家</h4>
+                                <span>连载中</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <h4>咒术回战</h4>
+                                <span>连载中</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <h4>海贼王</h4>
+                                <span>连载中</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-card" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+                    <h3>📖 每日签到</h3>
+                    <p style="font-size:13px; color:#747d8c; margin-bottom:15px;">登录即可获得漫画阅读券</p>
+                    <button class="btn btn-primary" style="padding: 8px 20px; font-size: 14px;">立即登录</button>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Latest Updates -->
+        <section class="section-title">
+            <h2>最新更新</h2>
+            <a href="#" class="more-link">查看全部 &rarr;</a>
+        </section>
+        <table class="update-table">
+            <thead>
+                <tr>
+                    <th width="40%">动漫名称</th>
+                    <th width="30%">最新话数</th>
+                    <th width="20%">更新时间</th>
+                    <th width="10%">状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="update-title">葬送的芙莉莲</td>
+                    <td class="update-ep">第 72 话</td>
+                    <td class="update-time">10分钟前</td>
+                    <td>连载中</td>
+                </tr>
+                <tr>
+                    <td class="update-title">我推的孩子</td>
+                    <td class="update-ep">第 25 话</td>
+                    <td class="update-time">35分钟前</td>
+                    <td>连载中</td>
+                </tr>
+                <tr>
+                    <td class="update-title">迷宫饭</td>
+                    <td class="update-ep">第 12 话</td>
+                    <td class="update-time">1小时前</td>
+                    <td>连载中</td>
+                </tr>
+                <tr>
+                    <td class="update-title">蓝色监狱</td>
+                    <td class="update-ep">第 145 话</td>
+                    <td class="update-time">2小时前</td>
+                    <td>连载中</td>
+                </tr>
+                <tr>
+                    <td class="update-title">无职转生</td>
+                    <td class="update-ep">第 38 话</td>
+                    <td class="update-time">3小时前</td>
+                    <td>连载中</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Popular Categories -->
+        <section class="section-title">
+            <h2>热门分类</h2>
+        </section>
+        <div class="grid-layout">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">热血</span>
+                    <img src="https://picsum.photos/seed/action/300/420" alt="热血动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">热血战斗</h3>
+                    <div class="card-meta">
+                        <span>1,204 部</span>
+                        <span>最新: 炎炎消防队</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">恋爱</span>
+                    <img src="https://picsum.photos/seed/love/300/420" alt="恋爱动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">校园恋爱</h3>
+                    <div class="card-meta">
+                        <span>892 部</span>
+                        <span>最新: 葬送的芙莉莲</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">悬疑</span>
+                    <img src="https://picsum.photos/seed/mystery/300/420" alt="悬疑动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">悬疑推理</h3>
+                    <div class="card-meta">
+                        <span>654 部</span>
+                        <span>最新: 约定的梦幻岛</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">治愈</span>
+                    <img src="https://picsum.photos/seed/calm/300/420" alt="治愈动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">治愈系</h3>
+                    <div class="card-meta">
+                        <span>521 部</span>
+                        <span>最新: 夏目友人帐</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">科幻</span>
+                    <img src="https://picsum.photos/seed/scifi/300/420" alt="科幻动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">科幻未来</h3>
+                    <div class="card-meta">
+                        <span>432 部</span>
+                        <span>最新: 赛博朋克</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">奇幻</span>
+                    <img src="https://picsum.photos/seed/fantasy/300/420" alt="奇幻动漫">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">异世界</h3>
+                    <div class="card-meta">
+                        <span>1,105 部</span>
+                        <span>最新: 无职转生</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Arrivals -->
+        <section class="section-title">
+            <h2>新番推荐</h2>
+            <a href="#" class="more-link">查看全部 &rarr;</a>
+        </section>
+        <div class="grid-layout">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">NEW</span>
+                    <img src="https://picsum.photos/seed/anime1/300/420" alt="新番封面">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">电锯人</h3>
+                    <div class="card-meta">
+                        <span>TV版</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">NEW</span>
+                    <img src="https://picsum.photos/seed/anime2/300/420" alt="新番封面">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">药屋少女的呢喃</h3>
+                    <div class="card-meta">
+                        <span>TV版</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">NEW</span>
+                    <img src="https://picsum.photos/seed/anime3/300/420" alt="新番封面">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">孤独摇滚！</h3>
+                    <div class="card-meta">
+                        <span>TV版</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">NEW</span>
+                    <img src="https://picsum.photos/seed/anime4/300/420" alt="新番封面">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">来自深渊</h3>
+                    <div class="card-meta">
+                        <span>TV版</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-desc">
+                    <a href="#" class="logo">爱动漫网<span>dfls</span></a>
+                    <p>爱动漫网dfls是一个专注于二次元文化的在线资源平台。我们致力于为用户提供最新、最全的动漫资讯、漫画阅读服务以及高清番剧资源。在这里，您可以轻松找到喜欢的作品，享受纯粹的二次元乐趣。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页推荐</a></li>
+                        <li><a href="#">日漫专区</a></li>
+                        <li><a href="#">国漫专区</a></li>
+                        <li><a href="#">排行榜单</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">用户注册</a></li>
+                        <li><a href="#">如何阅读</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博账号</a></li>
+                        <li><a href="#">粉丝群组</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 爱动漫网dfls 版权所有 | 本站资源仅供学习交流，请于下载后24小时内删除。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
