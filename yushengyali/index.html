@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="羽生亚梨沙全部作品全集阅读指南，涵盖主要漫画作品列表、角色介绍及阅读顺序推荐。">
+    <meta name="keywords" content="羽生亚梨沙全部作品, 羽生亚梨沙漫画, 漫画推荐, 恋爱漫画">
+    <title>羽生亚梨沙全部作品 - 完整漫画作品集与阅读指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff9eb5;
+            --bg-color: #fff0f3;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(255, 107, 129, 0.15);
+            --spacing-unit: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout & Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 107, 129, 0.25);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: rgba(255, 107, 129, 0.1);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #ff4757;
+        }
+
+        /* Featured / Highlight Card */
+        .featured-card {
+            grid-column: 1 / -1;
+            display: flex;
+            background: linear-gradient(to right, #ffffff, #fff5f7);
+            border: 1px solid rgba(255, 107, 129, 0.2);
+        }
+
+        .featured-img {
+            width: 40%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Sidebar / Info Area */
+        .info-panel {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #dfe6e9;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .featured-card {
+                flex-direction: column;
+            }
+
+            .featured-img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .featured-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                梨沙漫屋
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">全部作品</a></li>
+                    <li><a href="#">作品分类</a></li>
+                    <li><a href="#">作者专栏</a></li>
+                    <li><a href="#">阅读排行</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>羽生亚梨沙全部作品</h1>
+                <p>探索这位人气画师笔下细腻的恋爱故事与唯美世界。本站整理了其代表作及相关衍生作品，为您提供阅读指南。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Sidebar Info -->
+            <aside class="info-panel">
+                <h3 style="margin-bottom: 20px; font-size: 1.2rem;">作者简介</h3>
+                <ul class="info-list">
+                    <li>
+                        <span class="info-label">职业</span>
+                        <span>漫画家、插画师</span>
+                    </li>
+                    <li>
+                        <span class="info-label">风格特点</span>
+                        <span>清新治愈、细腻画风、擅长描写细腻情感与校园生活</span>
+                    </li>
+                    <li>
+                        <span class="info-label">活跃时期</span>
+                        <span>长期活跃于网络漫画平台</span>
+                    </li>
+                    <li>
+                        <span class="info-label">代表系列</span>
+                        <span>《看护人员》系列、《去见你》、《恋爱禁止的世界》等</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Featured Highlight -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">必读推荐</h2>
+                </div>
+                <div class="grid">
+                    <article class="card featured-card">
+                        <img src="https://picsum.photos/seed/hayase/800/600.jpg" alt="看护人员" class="featured-img">
+                        <div class="featured-content">
+                            <span class="card-tag">巅峰之作</span>
+                            <h3 class="card-title">《看护人员》系列</h3>
+                            <p class="card-desc">这是作者最负盛名的代表作之一。故事围绕着特殊看护人员的日常生活展开，充满了温馨、幽默与偶尔的感人瞬间。细腻的笔触描绘了人与人之间最真挚的羁绊。</p>
+                            <a href="#" class="btn">开始阅读</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Main Works Grid -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">主要作品列表</h2>
+                    <a href="#" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">查看全部 &rarr;</a>
+                </div>
+                <div class="grid">
+                    <!-- Work 1 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work1/400/500.jpg" alt="去见你" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">爱情</span>
+                            <h3 class="card-title">《去见你》</h3>
+                            <p class="card-desc">一段跨越距离的甜蜜恋情，讲述了两人为了见对方一面而努力奔向彼此的故事。</p>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work2/400/500.jpg" alt="恋爱禁止的世界" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">奇幻</span>
+                            <h3 class="card-title">《恋爱禁止的世界》</h3>
+                            <p class="card-desc">在这个世界里恋爱被禁止，但主角却遇到了那个无法抗拒的人，打破了禁忌。</p>
+                            <div class="card-meta">
+                                <span>已完结</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work3/400/500.jpg" alt="今天也在努力生活" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">日常</span>
+                            <h3 class="card-title">《今天也在努力生活》</h3>
+                            <p class="card-desc">轻松愉快的日常向漫画，记录了现代年轻人的生活点滴与职场趣事。</p>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 4 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work4/400/500.jpg" alt="我的宠物是魔王" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">萌宠</span>
+                            <h3 class="card-title">《我的宠物是魔王》</h3>
+                            <p class="card-desc">看似凶猛的魔王其实是个粘人的小家伙，与饲主之间爆笑又温馨的互动。</p>
+                            <div class="card-meta">
+                                <span>已完结</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 5 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work5/400/500.jpg" alt="午后的咖啡店" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">短篇</span>
+                            <h3 class="card-title">《午后的咖啡店》</h3>
+                            <p class="card-desc">收录了作者多部治愈系短篇漫画，适合在闲暇时光阅读。</p>
+                            <div class="card-meta">
+                                <span>短篇集</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 6 -->
+                    <article class="card">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/seed/work6/400/500.jpg" alt="青春的足迹" class="card-img">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">校园</span>
+                            <h3 class="card-title">《青春的足迹》</h3>
+                            <p class="card-desc">描绘了校园生活中那些闪闪发光的瞬间，是许多读者心中的青春回忆。</p>
+                            <div class="card-meta">
+                                <span>已完结</span>
+                                <a href="#" class="btn">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Reading Guide / FAQ -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">阅读指南</h2>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow);">
+                    <h3 style="margin-bottom: 20px;">如何选择阅读顺序？</h3>
+                    <p style="margin-bottom: 15px;">对于初次接触羽生亚梨沙作品的读者，建议按照<strong>“短篇集”</strong>、<strong>“日常向”</strong>、<strong>“恋爱线”</strong>的顺序进行阅读。这样可以先熟悉作者的画风和叙事节奏，再逐步深入到长篇连载的剧情中。</p>
+                    <h3 style="margin-bottom: 15px; margin-top: 30px;">阅读注意事项</h3>
+                    <ul style="padding-left: 20px; color: var(--text-light);">
+                        <li style="margin-bottom: 10px;">部分作品可能包含特定主题或情节，请根据个人喜好选择。</li>
+                        <li style="margin-bottom: 10px;">请支持正版渠道，尊重创作者的劳动成果。</li>
+                        <li>阅读时请保持良好的坐姿，注意保护视力。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>梨沙漫屋</h3>
+            <p style="font-size: 0.9rem; color: #b2bec3; margin-top: 10px;">专注提供高质量漫画阅读体验与作者作品整理</p>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">投稿合作</a>
+                <a href="#">版权声明</a>
+                <a href="#">隐私政策</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #636e72;">&copy; 2023 梨沙漫屋. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
