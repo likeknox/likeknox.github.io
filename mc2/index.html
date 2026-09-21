@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC2 - 智能生态互联与物联网解决方案平台</title>
+    <meta name="description" content="MC2 提供领先的物联网核心技术与智能设备互联方案，涵盖智能家居、工业自动化及智慧城市数据管理，致力于构建万物互联的未来。">
+    <meta name="keywords" content="MC2, 物联网, 智能互联, 智能家居, 工业自动化, 物联网平台">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #004c99;
+            --accent-color: #00d2ff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f4f7f9;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #eef2f6 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: rgba(0, 210, 255, 0.2);
+            z-index: -1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 20px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 102, 204, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .solution-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .solution-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #fff;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse .feature-content {
+            direction: ltr;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .feature-img img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .newsletter input {
+            padding: 12px;
+            border-radius: 4px;
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .newsletter button {
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-row.reverse {
+                direction: ltr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">MC2<span>IoT</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#solutions">解决方案</a></li>
+                    <li><a href="#features">核心优势</a></li>
+                    <li><a href="#technology">技术架构</a></li>
+                    <li><a href="#resources">资源中心</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn-cta">开始集成</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>下一代万物互联的<br><span>MC2 智能核心</span></h1>
+                    <p>MC2 是专为现代物联网生态设计的分布式连接协议与平台。它打破了设备孤岛，为智能家居、工业自动化和智慧城市提供统一的数据语言与安全交互机制。</p>
+                    <div class="hero-buttons">
+                        <a href="#solutions" class="btn-cta">探索解决方案</a>
+                        <a href="#" class="btn-outline">阅读技术白皮书</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/mc2tech/600/400.jpg" alt="MC2 智能生态互联可视化示意图" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>兼容设备协议</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>数据传输安全</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10ms</h3>
+                    <p>超低延迟响应</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50k+</h3>
+                    <p>企业级开发者</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">全场景解决方案</h2>
+                    <p class="section-subtitle">无论您的业务场景多么复杂，MC2 都能提供灵活且可扩展的底层架构支持。</p>
+                </div>
+                <div class="solutions-grid">
+                    <article class="solution-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        </div>
+                        <h3>智慧家庭</h3>
+                        <p>实现家电、照明、安防设备的无缝联动。MC2 提供家庭网关协议，支持语音控制与远程自动化场景设置。</p>
+                    </article>
+                    <article class="solution-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3>工业物联网</h3>
+                        <p>针对工厂环境优化的边缘计算与数据采集方案。支持高并发设备接入，确保生产线数据实时回传与异常预警。</p>
+                    </article>
+                    <article class="solution-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
+                        <h3>智慧城市</h3>
+                        <p>整合交通、能源与环境监测数据。通过 MC2 平台构建城市级数据中台，辅助政府进行科学决策与资源调配。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section features">
+            <div class="container">
+                <div class="feature-row">
+                    <div class="feature-content">
+                        <h3>分布式边缘计算架构</h3>
+                        <p>MC2 采用去中心化的边缘节点设计，数据无需全部上传云端即可在本地完成初步处理。这不仅降低了带宽成本，更极大提升了系统在弱网环境下的响应速度和隐私安全性。</p>
+                        <ul class="feature-list">
+                            <li>本地智能决策，减少云端依赖</li>
+                            <li>数据隐私保护，敏感信息不出域</li>
+                            <li>网络断开时设备仍可维持基础功能</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://picsum.photos/seed/mc2edge/600/400.jpg" alt="MC2 分布式边缘计算架构图" width="600" height="400">
+                    </div>
+                </div>
+                <div class="feature-row reverse">
+                    <div class="feature-content">
+                        <h3>标准化设备接入协议</h3>
+                        <p>打破不同品牌和厂商之间的技术壁垒。MC2 提供标准化的 MQTT 与 CoAP 接口，配合丰富的 SDK 和 API 文档，让开发者能在极短时间内完成新设备的接入与调试。</p>
+                        <ul class="feature-list">
+                            <li>支持 50+ 种主流硬件开发平台</li>
+                            <li>提供跨平台 SDK (C/C++, Python, Node.js)</li>
+                            <li>自动设备发现与配置向导</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://picsum.photos/seed/mc2protocol/600/400.jpg" alt="MC2 标准化设备接入流程" width="600" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container cta-content">
+                <h2>准备好构建您的智能生态了吗？</h2>
+                <p>加入全球数万开发者行列，使用 MC2 开启物联网创新之旅。获取开发套件，访问 API 文档，即刻开始。</p>
+                <a href="#" class="btn-cta" style="background-color: white; color: var(--primary-color);">立即注册开发者账号</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>MC2 IoT</h4>
+                    <p>致力于构建安全、高效、开放的下一代物联网连接标准，赋能全球数字化转型。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>产品服务</h5>
+                    <ul>
+                        <li><a href="#">MC2 连接器</a></li>
+                        <li><a href="#">云端管理平台</a></li>
+                        <li><a href="#">开发者套件</a></li>
+                        <li><a href="#">API 文档</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>解决方案</h5>
+                    <ul>
+                        <li><a href="#">智能家居</a></li>
+                        <li><a href="#">工业4.0</a></li>
+                        <li><a href="#">智慧交通</a></li>
+                        <li><a href="#">智慧医疗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>订阅更新</h5>
+                    <div class="newsletter">
+                        <input type="email" placeholder="输入您的邮箱地址">
+                        <button type="button">订阅</button>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">我们尊重您的隐私，不会发送垃圾邮件。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MC2 IoT Solutions. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
