@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一天一句暖心早安 - 每日精选励志问候语与正能量语录</title>
+    <meta name="description" content="一天一句暖心早安，为您提供每日精选的早安问候语、正能量语录和励志短句。无论您是寻找工作动力、生活灵感还是送给他人的温暖祝福，这里都有适合您的暖心早安文案。">
+    <meta name="keywords" content="一天一句暖心早安,早安语录,早安问候,正能量句子,早安祝福,励志语录">
+    <style>
+        :root {
+            --primary-color: #ff7e5f;
+            --primary-gradient: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            --secondary-color: #6a85b6;
+            --secondary-gradient: linear-gradient(135deg, #6a85b6 0%, #bac8e0 100%);
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,126,95,0.1) 0%, rgba(253,251,247,0) 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .date-display {
+            display: inline-block;
+            background: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        /* Quote Card */
+        .quote-card {
+            background: var(--card-bg);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: rgba(255,126,95,0.15);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            text-align: right;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .quote-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #eee;
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,126,95,0.2);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        /* Daily Archives Section */
+        .archives {
+            padding: 4rem 0;
+            background: #fff;
+        }
+
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .archive-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-color);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .archive-item:hover {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .archive-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .archive-title {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .arrow {
+            color: #ccc;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .quote-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">早安心语</div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#daily">每日精选</a>
+                <a href="#categories">分类大全</a>
+                <a href="#archives">历史记录</a>
+                <a href="#about">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="date-display" id="currentDate">加载中...</div>
+                <h1>一天一句暖心早安</h1>
+                <p>用最温暖的话语唤醒每一个清晨，为生活注入正能量。</p>
+
+                <div class="quote-card">
+                    <div class="quote-icon">“</div>
+                    <div class="quote-text" id="quoteText">早安，愿你拥有美好的一天！</div>
+                    <div class="quote-author" id="quoteAuthor">—— 祝福</div>
+                    
+                    <div class="quote-actions">
+                        <button class="btn btn-primary" onclick="getNewQuote()">换一句</button>
+                        <button class="btn btn-outline" onclick="copyQuote()">复制文案</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories container" id="categories">
+            <h2 class="section-title">早安分类</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="category-icon">☀️</span>
+                    <div class="category-name">阳光励志</div>
+                    <div class="category-count">365 条语录</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🤝</span>
+                    <div class="category-name">温馨祝福</div>
+                    <div class="category-count">520 条问候</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">☕</span>
+                    <div class="category-name">生活感悟</div>
+                    <div class="category-count">200 条短句</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">💪</span>
+                    <div class="category-name">奋斗职场</div>
+                    <div class="category-count">180 条建议</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features container">
+            <h2 class="section-title">为什么选择我们</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">每日更新</h3>
+                    <p class="feature-desc">精选全网优质早安文案，每天为您推送一条全新的暖心语录，让每一天都充满期待。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3 class="feature-title">精准分类</h3>
+                    <p class="feature-desc">涵盖励志、情感、生活、职场等多个领域，方便您快速找到最适合当下心情的文案。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">一键分享</h3>
+                    <p class="feature-desc">支持一键复制和分享功能，方便您将这份温暖传递给家人、朋友和同事。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archives Section -->
+        <section class="archives" id="archives">
+            <div class="container">
+                <h2 class="section-title">往期精选</h2>
+                <div class="archive-list">
+                    <a href="#" class="archive-item">
+                        <span class="archive-date">2023-10-24</span>
+                        <span class="archive-title">生活不是等待暴风雨过去，而是学会在雨中跳舞。</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="archive-item">
+                        <span class="archive-date">2023-10-23</span>
+                        <span class="archive-title">愿你所有的努力都不被辜负，所有的美好都如期而至。</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="archive-item">
+                        <span class="archive-date">2023-10-22</span>
+                        <span class="archive-title">每一个清晨都是一次重生，带着昨日的遗憾和今日的希望。</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="archive-item">
+                        <span class="archive-date">2023-10-21</span>
+                        <span class="archive-title">保持热爱，奔赴山海，早安！</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>早安心语</h3>
+                    <p style="color: #b2bec3; font-size: 0.9rem; line-height: 1.6;">
+                        致力于为每一位用户提供最温暖、最励志的早安问候语。让每一天的开始都充满力量与希望。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">首页推荐</a></li>
+                        <li><a href="#">分类浏览</a></li>
+                        <li><a href="#">每日打卡</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>友情链接</h3>
+                    <ul>
+                        <li><a href="#">励志名言</a></li>
+                        <li><a href="#">早安海报</a></li>
+                        <li><a href="#">正能量社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 一天一句暖心早安. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        // 日期显示逻辑
+        function updateDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            const dateString = now.toLocaleDateString('zh-CN', options);
+            document.getElementById('currentDate').textContent = dateString;
+        }
+
+        // 模拟语录数据
+        const quotes = [
+            { text: "早安！愿你今天的笑容比阳光更灿烂。", author: "早安祝福" },
+            { text: "生活明朗，万物可爱，人间值得，未来可期。", author: "生活感悟" },
+            { text: "每一个清晨，都是一次重生的机会，去成为更好的自己。", author: "励志语录" },
+            { text: "不管昨天发生了什么，今天都是一个新的开始。", author: "心灵鸡汤" },
+            { text: "保持热爱，奔赴山海，早安！", author: "行动派" },
+            { text: "愿你所有的努力都不被辜负，所有的美好都如期而至。", author: "美好祝愿" },
+            { text: "清晨的阳光，是天空给大地的拥抱。", author: "自然之美" },
+            { text: "努力的意义，就是以后的日子里，放眼望去，全部都是自己喜欢的人和事。", author: "奋斗者" },
+            { text: "早安！新的一天，带着好心情出发吧。", author: "日常问候" },
+            { text: "不要去追一匹马，用追马的时间种草，待到春暖花开时，就会有一批骏马任你挑选。", author: "智慧人生" }
+        ];
+
+        let currentQuoteIndex = -1;
+
+        // 获取新语录
+        function getNewQuote() {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * quotes.length);
+            } while (newIndex === currentQuoteIndex && quotes.length > 1);
+            
+            currentQuoteIndex = newIndex;
+            
+            const quote = quotes[currentQuoteIndex];
+            const textElement = document.getElementById('quoteText');
+            const authorElement = document.getElementById('quoteAuthor');
+            
+            // 添加淡出效果
+            textElement.style.opacity = 0;
+            authorElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                textElement.textContent = quote.text;
+                authorElement.textContent = "—— " + quote.author;
+                textElement.style.opacity = 1;
+                authorElement.style.opacity = 1;
+            }, 300);
+        }
+
+        // 复制语录功能
+        function copyQuote() {
+            const quoteText = document.getElementById('quoteText').textContent;
+            const quoteAuthor = document.getElementById('quoteAuthor').textContent;
+            const fullText = `${quoteText} ${quoteAuthor}`;
+            
+            navigator.clipboard.writeText(fullText).then(() => {
+                // 创建一个临时的提示元素
+                const toast = document.createElement('div');
+                toast.textContent = '已复制到剪贴板！';
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.background = 'rgba(0,0,0,0.8)';
+                toast.style.color = '#fff';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '30px';
+                toast.style.zIndex = '1000';
+                toast.style.fontSize = '0.9rem';
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = 0;
+                    toast.style.transition = 'opacity 0.5s';
+                    setTimeout(() => document.body.removeChild(toast), 500);
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+
+        // 初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            updateDate();
+            getNewQuote();
+        });
+    </script>
+</body>
+</html>
